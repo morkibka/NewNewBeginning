@@ -8,7 +8,7 @@ public class TestOnliner {
     public Set set = new Set();
     String OnlinerLogoXpath = "//img[@class='onliner_logo']";
     String OnlinerUSDtoBYNXpath = "//span[@class='_u js-currency-amount']";
-
+//
     @BeforeClass
     public void GetAddress() {
         set.SetUp("https://www.onliner.by/");
