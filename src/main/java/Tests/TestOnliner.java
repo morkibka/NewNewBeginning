@@ -45,7 +45,7 @@ public class TestOnliner {
 
         /*   set.wait10s.until(ExpectedConditions.visibilityOf(set.driver.findElement(By.xpath(sortBy))));
         set.wait10s.until(ExpectedConditions.visibilityOf(set.driver.findElement(By.xpath(priceDesc))));
-      set.driver.findElement(By.xpath(priceDesc)).click(); // вот туть делает значение активным, но не кликает
+      set.driver.findElement(By.xpath(priceDesc)).click();
         System.out.println(set.driver.findElement(By.xpath(firstPrice)).getAttribute("innerText"));
         */
 
