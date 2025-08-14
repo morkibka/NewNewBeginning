@@ -16,9 +16,9 @@ public class TestOnliner {
     }
     @Test
     public void LoginTest() {
-String currentCurse = set.driver.findElement(By.xpath(OnlinerUSDtoBYNXpath)).getText();
-        System.out.println("Текущий курс: " + currentCurse);
-        Assert.assertNotNull(currentCurse);
+     String currentCurse = set.driver.findElement(By.xpath(OnlinerUSDtoBYNXpath)).getText();
+     System.out.println("Текущий курс: " + currentCurse);
+     Assert.assertNotNull(currentCurse);
     }
 
     @AfterClass
