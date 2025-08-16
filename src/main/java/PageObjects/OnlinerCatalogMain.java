@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class OnlinerCatalogMain {
-    public Set set = new Set();
+    Set set = Set.getInstance();
     String fans = "//img[@alt='Вентиляторы']";
 
     public void FanCategoryBtnClick() {

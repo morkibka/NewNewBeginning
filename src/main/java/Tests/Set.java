@@ -8,9 +8,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class Set {
+
+    private static Set instance;
     private final WebDriver driver = new ChromeDriver();
     private final WebDriverWait wait10s = new WebDriverWait(driver, Duration.ofSeconds(10));
     private final Actions builder = new Actions(driver);
+
+    private Set() {
+    }
+
+    public static Set getInstance() {
+        if (instance == null) {
+            instance = new Set();
+        }
+        return instance;
+    }
+
 
     public WebDriver Driver() {
         return driver;

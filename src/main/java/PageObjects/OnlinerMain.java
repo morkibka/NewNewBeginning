@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class OnlinerMain {
-    public Set set = new Set();
+    Set set = Set.getInstance();
     String onlinerLogoXpath = "//img[@class='onliner_logo']";
     String onlinerUSDtoBYNXpath = "//span[@class='_u js-currency-amount']";
     String catalogBtn = "//span[@class='b-main-navigation__text'][1]";

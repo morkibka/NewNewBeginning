@@ -8,7 +8,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class TestOnliner {
-    Set set = new Set();
+
+    Set set = Set.getInstance();
     OnlinerMain onlinerMain = new OnlinerMain();
     OnlinerCatalogMain onlinerCatalogMain = new OnlinerCatalogMain();
     OnlinerCatalogCategory onlinerCatalogCategory = new OnlinerCatalogCategory();
