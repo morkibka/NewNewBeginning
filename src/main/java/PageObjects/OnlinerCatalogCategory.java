@@ -5,10 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 public class OnlinerCatalogCategory {
-    Set set = Set.getInstance();
-    String sortBy = "//select[@class='input-style__real']";
-    String priceDesc = "//option[@value=\"price:desc\"]";
-    String firstPrice = "//a[@class='catalog-form__link catalog-form__link_nodecor catalog-form__link_primary-additional catalog-form__link_huge-additional catalog-form__link_font-weight_bold']";
+   private Set set = Set.getInstance();
+    private String sortBy = "//select[@class='input-style__real']";
+    private String priceDesc = "//option[@value=\"price:desc\"]";
+    private String firstPrice = "//*[contains(@class, 'catalog-form__link_primary-additional')]";
 
 
     public void SortByClick() {

@@ -9,18 +9,18 @@ import org.testng.annotations.Test;
 
 public class TestOnliner {
 
-    Set set = Set.getInstance();
-    OnlinerMain onlinerMain = new OnlinerMain();
-    OnlinerCatalogMain onlinerCatalogMain = new OnlinerCatalogMain();
-    OnlinerCatalogCategory onlinerCatalogCategory = new OnlinerCatalogCategory();
+    private Set set = Set.getInstance();
+    private OnlinerMain onlinerMain = new OnlinerMain();
+    private OnlinerCatalogMain onlinerCatalogMain = new OnlinerCatalogMain();
+    private OnlinerCatalogCategory onlinerCatalogCategory = new OnlinerCatalogCategory();
 
     @BeforeClass
-    public void GetAddress() {
+    private void GetAddress() {
         set.SetUp("https://www.onliner.by/");
     }
 
     @Test
-    public void CheckCurseUSD() {
+    private void CheckCurseUSD() {
         onlinerMain.Wait10sForOnlinerLogo();
         onlinerMain.GetCurseUSD();
         onlinerMain.PrintCurseUSD();
@@ -28,7 +28,7 @@ public class TestOnliner {
     }
 
     @Test
-    public void PrintHighPriceFan() {
+    private void PrintHighPriceFan() {
         onlinerMain.CatalogBtnClick();
         onlinerCatalogMain.FanCategoryBtnClick();
         onlinerCatalogCategory.SortByClick();
@@ -38,7 +38,7 @@ public class TestOnliner {
     }
 
     @AfterClass
-    public void Close() {
+    private void Close() {
         set.CloseDriver();
     }
 }
