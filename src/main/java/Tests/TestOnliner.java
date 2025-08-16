@@ -1,53 +1,38 @@
 package Tests;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
-import org.testng.annotations.*;
+
+import PageObjects.OnlinerCatalogCategory;
+import PageObjects.OnlinerCatalogMain;
+import PageObjects.OnlinerMain;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 public class TestOnliner {
-    public Set set = new Set();
-    String onlinerLogoXpath = "//img[@class='onliner_logo']";
-    String onlinerUSDtoBYNXpath = "//span[@class='_u js-currency-amount']";
-    String catalogBtn = "//span[@class='b-main-navigation__text'][1]";
-    String fans = "//img[@alt='Вентиляторы']";
-    String sortBy = "//select[@class='input-style__real']";
-    String priceDesc = "//option[@value=\"price:desc\"]";
-    String firstPrice = "//a[@class='catalog-form__link catalog-form__link_nodecor catalog-form__link_primary-additional catalog-form__link_huge-additional catalog-form__link_font-weight_bold']";
-
-
-
-
-
+    Set set = new Set();
+    OnlinerMain onlinerMain = new OnlinerMain();
+    OnlinerCatalogMain onlinerCatalogMain = new OnlinerCatalogMain();
+    OnlinerCatalogCategory onlinerCatalogCategory = new OnlinerCatalogCategory();
 
     @BeforeClass
     public void GetAddress() {
         set.SetUp("https://www.onliner.by/");
-        set.wait10s.until(ExpectedConditions.visibilityOf(set.driver.findElement(By.xpath(onlinerLogoXpath))));
     }
+
     @Test
-    public void LoginTest() {
-     String currentCurse = set.driver.findElement(By.xpath(onlinerUSDtoBYNXpath)).getText();
-     System.out.println("Текущий курс: " + currentCurse);
-     Assert.assertNotNull(currentCurse);
+    public void CheckCurseUSD() {
+        onlinerMain.Wait10sForOnlinerLogo();
+        onlinerMain.GetCurseUSD();
+        onlinerMain.PrintCurseUSD();
+        onlinerMain.IsCurseUSDNotNull();
     }
+
     @Test
-    public void SecondTest() {
-        set.driver.findElement(By.xpath(catalogBtn)).click();
-        set.wait10s.until(ExpectedConditions.visibilityOf(set.driver.findElement(By.xpath(fans))));
-        set.driver.findElement(By.xpath(fans)).click();
-        set.driver.findElement(By.xpath(sortBy)).click();
-
-        Select objSelect = new Select(set.driver.findElement(By.xpath(sortBy)));
-        objSelect.selectByIndex(4);
-        System.out.println(set.driver.findElement(By.xpath(firstPrice)).getAttribute("innerText"));
-
-
-        /*   set.wait10s.until(ExpectedConditions.visibilityOf(set.driver.findElement(By.xpath(sortBy))));
-        set.wait10s.until(ExpectedConditions.visibilityOf(set.driver.findElement(By.xpath(priceDesc))));
-      set.driver.findElement(By.xpath(priceDesc)).click();
-        System.out.println(set.driver.findElement(By.xpath(firstPrice)).getAttribute("innerText"));
-        */
+    public void PrintHighPriceFan() {
+        onlinerMain.CatalogBtnClick();
+        onlinerCatalogMain.FanCategoryBtnClick();
+        onlinerCatalogCategory.SortByClick();
+        onlinerCatalogCategory.SelectOrderByPrice();
+        onlinerCatalogCategory.PrintFirstPrice();
 
     }
 
