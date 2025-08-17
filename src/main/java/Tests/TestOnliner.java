@@ -34,7 +34,17 @@ public class TestOnliner {
         onlinerCatalogCategory.SortByClick();
         onlinerCatalogCategory.SelectOrderByPrice();
         onlinerCatalogCategory.PrintFirstPrice();
+    }
 
+    //не работает(
+    //не ждет и не переключается на модальное окно, модальное окно похоже не показывается
+    @Test
+    private void SearchSmth(){
+        onlinerMain.GetSearchInputText();
+        onlinerMain.SearchSmth("iPhone 16e");
+        set.Wait10s();
+onlinerMain.SwitchToSearchModalWindow();
+System.out.println(onlinerMain.GetTitleOfElInSearch(1));
     }
 
     @AfterClass
